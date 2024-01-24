@@ -13,7 +13,9 @@ class Hada():
     def move(self):
         self.head[0] += self.direction[0]*2
         self.head[1] += self.direction[1]*2
-        if self.head in self.body or 0 > self.head[0] > 300 or 0 > self.head[1] > 300:
+        if self.head in self.body:
+            game_over()
+        elif not (0 <= self.head[0] <= 300 and 0 <= self.head[1] <= 300):
             game_over()
         else:
             temp = [self.head[0], self.head[1]]
